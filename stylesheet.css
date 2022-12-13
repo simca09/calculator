@@ -58,7 +58,15 @@ body{
     width: 50px;
 }
 
-#buttonZero, #allClear{
+#allClear{
+    width: 165px;
+}
+
+#equals{
+    width: 80px;
+}
+
+#buttonZero{
     width: 108px;
 }
 
