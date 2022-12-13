@@ -50,13 +50,21 @@ operators.forEach((ope) => ope.addEventListener("click", function(e){
 
 
 // All-Clear function
-allClear.addEventListener("click", function(e){
+allClear.addEventListener("click", function(){
     startValue = "";
     secondValue = "";
     opa = "";
     screenTwo.textContent = startValue;
     screenOne.textContent = startValue;
 })
+
+// Equals function 1/2
+equals.addEventListener("click", function(){
+    calculate();
+    screenTwo.textContent = "";
+    screenOne.textContent = secondValue;
+})
+
 
 })
 
@@ -72,10 +80,28 @@ function handleNumber(num) {
 // Operator functions 2/2
 
 function handleOperator(op){
+    console.log(op)
     opa = op;
     secondValue = startValue;
     startValue = "";
 
+}
+
+// Equals function 2/2
+
+function calculate() {
+    secondValue = Number(secondValue);
+    startValue = Number(startValue);
+    if (opa === "+") {
+        secondValue += startValue;
+    } else if (opa === "-") {
+        secondValue -= startValue;
+    } else if (opa === "x") {
+        secondValue *= startValue;
+    } else if (opa === "/") {
+        secondValue /= startValue;
+    }
+    
 }
 
 
