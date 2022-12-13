@@ -47,6 +47,17 @@ operators.forEach((ope) => ope.addEventListener("click", function(e){
         screenOne.textContent = startValue;
     }))
 
+
+
+// All-Clear function
+allClear.addEventListener("click", function(e){
+    startValue = "";
+    secondValue = "";
+    opa = "";
+    screenTwo.textContent = startValue;
+    screenOne.textContent = startValue;
+})
+
 })
 
 // Number functions 2/2
@@ -54,6 +65,7 @@ function handleNumber(num) {
     if (startValue.length <= 5) {
         startValue += num;
     }
+    
 }
 
 
