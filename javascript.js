@@ -43,8 +43,8 @@ numbers.forEach((numb) => numb.addEventListener("click", function(e){
 // Operator functions 1/2
 operators.forEach((ope) => ope.addEventListener("click", function(e){
         handleOperator(e.target.textContent);
-        screenOne.textContent = startValue + opa;
-        screenTwo.textContent = secondValue;
+        screenTwo.textContent = secondValue + " " + opa;
+        screenOne.textContent = startValue;
     }))
 
 })
