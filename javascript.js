@@ -20,7 +20,7 @@ const division = document.querySelector("#division");
 const multiplication = document.querySelector("#multiplication");
 const addition = document.querySelector("#addition");
 const equals = document.querySelector("#equals");
-const period = document.querySelector("#period");
+const period = document.querySelector(".period");
 const nine = document.querySelector("#buttonNine");
 const eight = document.querySelector("#buttonEight");
 const seven = document.querySelector("#buttonSeven");
@@ -60,10 +60,22 @@ allClear.addEventListener("click", function(){
 
 // Equals function 1/2
 equals.addEventListener("click", function(){
-    calculate();
-    screenTwo.textContent = "";
-    screenOne.textContent = secondValue;
+    if (startValue != "" && secondValue != ""){
+        calculate();
+        screenTwo.textContent = "";
+        if (secondValue.length <=5) {
+        screenOne.textContent = secondValue;
+        } else {
+            screenOne.textContent = secondValue.slice(0,5) + "...";
+        }
+    }
 })
+
+
+period.addEventListener("click", function(){
+    addDecimal()
+})
+
 
 
 })
@@ -92,6 +104,7 @@ function handleOperator(op){
 function calculate() {
     secondValue = Number(secondValue);
     startValue = Number(startValue);
+    
     if (opa === "+") {
         secondValue += startValue;
     } else if (opa === "-") {
@@ -102,9 +115,22 @@ function calculate() {
         secondValue /= startValue;
     }
     
+    secondValue = roundNumber(secondValue)
+    secondValue = secondValue.toString();
+    startValue = startValue.toString();
+
+}
+
+function roundNumber(num){
+    return Math.round(num * 1000) /1000;
 }
 
 
+function addDecimal() {
+    if(!startValue.includes(".")){
+        startValue += ".";
+    }
+}
 
 
 
